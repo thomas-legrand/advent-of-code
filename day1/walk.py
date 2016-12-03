@@ -2,6 +2,9 @@ import os
 import re
 import numpy as np
 
+# note: a pretty cool solution exists, using complex numbers, at
+# https://dannythecoder.wordpress.com/2016/12/02/walking-paths-with-complex-numbers/
+
 POSSIBLE_DIRECTIONS = [[0, 1], [1, 0], [0, -1], [-1, 0]]
 POSSIBLE_TURNS = {"R": -np.pi / 2, "L": np.pi / 2}
 
