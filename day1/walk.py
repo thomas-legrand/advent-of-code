@@ -96,6 +96,5 @@ def main():
     print sum(map(abs, first_visited_twice))
 
 
-
 if __name__ == '__main__':
     main()
