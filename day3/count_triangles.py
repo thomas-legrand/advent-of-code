@@ -34,6 +34,5 @@ def main():
     print len(real_triangles_by_columns)
 
 
-
 if __name__ == '__main__':
     main()
