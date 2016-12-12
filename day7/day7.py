@@ -102,9 +102,9 @@ def run_test2():
 def main():
     run_test()
     input_path = os.path.join('input', 'data')
-    print len([inp for inp in get_input(input_path) if supports_tls(inp)])
+    print(len([inp for inp in get_input(input_path) if supports_tls(inp)]))
     run_test2()
-    print len([inp for inp in get_input(input_path) if supports_ssl(inp)])
+    print(len([inp for inp in get_input(input_path) if supports_ssl(inp)]))
 
 
 if __name__ == '__main__':
