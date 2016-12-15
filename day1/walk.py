@@ -91,9 +91,9 @@ def main():
     # start with initial state (x = 0, y = 0) in a 2D plane, and head towards increasing x.
     initial_state = State([0, 0], [1, 0])
     visited_position = compute_position_sequence_from_instructions(initial_state, instructions)
-    print sum(map(abs, visited_position[-1]))
+    print(sum(map(abs, visited_position[-1])))
     first_visited_twice = compute_position_visited_twice(visited_position)
-    print sum(map(abs, first_visited_twice))
+    print(sum(map(abs, first_visited_twice)))
 
 
 if __name__ == '__main__':

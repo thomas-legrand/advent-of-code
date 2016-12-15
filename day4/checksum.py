@@ -64,11 +64,11 @@ def main():
     input_path = os.path.join('input', 'data')
     data = get_input(input_path)
     valid_names = [d for d in data if compute_checksum(d[0]) == d[1]]
-    print sum([int(d[2]) for d in valid_names])
+    print(sum([int(d[2]) for d in valid_names]))
     decrypted_names = [[decrypt_string(d[0]),d[2]] for d in valid_names]
-    print len(decrypted_names)
-    print decrypted_names
-    print filter(lambda x: "north" in x[0], decrypted_names)
+    print(len(decrypted_names))
+    print(decrypted_names)
+    print(filter(lambda x: "north" in x[0], decrypted_names))
 
 if __name__ == '__main__':
     main()

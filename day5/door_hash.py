@@ -19,13 +19,13 @@ def compute_password(input_door_id):
         h = get_hash(input_door_id + str(counter))
         if is_good_hash(h):
             password += h[5]
-            print password
+            print(password)
         if counter % 100000 == 0:
-            print counter
+            print(counter)
         if counter == 3231929:
-            print input_door_id + str(counter)
-            print h
-            print is_good_hash(h)
+            print(input_door_id + str(counter))
+            print(h)
+            print(is_good_hash(h))
         counter += 1
 
     return password
@@ -38,7 +38,7 @@ def compute_password2(input_door_id):
     while " " in password:
         h = get_hash(input_door_id + str(counter))
         if counter % 100000 == 0:
-            print counter
+            print(counter)
         counter += 1
         # check if hash is good (i.e. starts with five 0s)
         if not is_good_hash(h):
@@ -55,7 +55,7 @@ def compute_password2(input_door_id):
             continue
         # fill 7th character in the password at the 6th position, that was previously empty
         password[i] = h[6]
-        print password
+        print(password)
     return "".join(password)
 
 
@@ -71,7 +71,7 @@ def main():
     run_tests()
     input_door_id = "ojvtpuvg"
     # print compute_password(input_door_id)
-    print compute_password2(input_door_id)
+    print(compute_password2(input_door_id))
 
 
 if __name__ == '__main__':

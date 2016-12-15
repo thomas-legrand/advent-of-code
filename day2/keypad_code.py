@@ -87,8 +87,8 @@ class State2:
 
 def main():
     input_path = os.path.join('input', 'directions')
-    print get_input(input_path)
-    print [range(i * 3 + 1, (i + 1) * 3 + 1) for i in range(3)]
+    print(get_input(input_path))
+    print([range(i * 3 + 1, (i + 1) * 3 + 1) for i in range(3)])
     input = get_input(input_path)
     # for input_line in input:
     #     s = State(1, 1)
@@ -96,7 +96,7 @@ def main():
     #     print s.x, s.y
     #     print KEYPAD[s.y][s.x]
 
-    print input[0]
+    print(input[0])
     for input_line in input:
         st = State2(0, 2)
         for instruction in input_line:
@@ -104,11 +104,11 @@ def main():
             # print instruction
             # print st.x, st.y
         if st.y in [1, 3]:
-            print KEYPAD2[st.y][st.x - 1]
+            print(KEYPAD2[st.y][st.x - 1])
         elif st.y in [0, 4]:
-            print KEYPAD2[st.y][st.x - 2]
+            print(KEYPAD2[st.y][st.x - 2])
         else:
-            print KEYPAD2[st.y][st.x]
+            print(KEYPAD2[st.y][st.x])
 
 if __name__ == '__main__':
     main()
