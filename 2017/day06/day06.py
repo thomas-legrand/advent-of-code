@@ -5,7 +5,7 @@ def get_input():
 
 def realloc(inp):
     states = set()
-    current = inp
+    current = list(inp)
     c = 0
     while tuple(current) not in states:
         c += 1
@@ -22,7 +22,7 @@ def realloc(inp):
 
 def seen_again(inp):
     states = []
-    current = inp
+    current = list(inp)
     while True:
         if tuple(current) in states:
             return len(states) - states.index(tuple(current))
