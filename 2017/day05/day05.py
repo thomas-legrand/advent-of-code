@@ -3,7 +3,8 @@ def get_multi_line_input():
     return f.read().splitlines()
 
 
-def exit_inst(inp):
+def exit_inst(inst):
+    inp = list(inst)
     i = 0
     c = 0
     while 0 <= i < len(inp):
@@ -13,7 +14,8 @@ def exit_inst(inp):
     return c
 
 
-def exit_inst2(inp):
+def exit_inst2(inst):
+    inp = list(inst)
     i = 0
     c = 0
     while 0 <= i < len(inp):
@@ -30,7 +32,6 @@ def exit_inst2(inp):
 def run_test():
     inp_test = [int(n) for n in open('input_test').read().splitlines()]
     assert exit_inst(inp_test) == 5
-    inp_test = [int(n) for n in open('input_test').read().splitlines()]
     assert exit_inst2(inp_test) == 10
 
 
@@ -38,7 +39,6 @@ def main():
     run_test()
     inp = [int(n) for n in get_multi_line_input()]
     print exit_inst(inp)
-    inp = [int(n) for n in get_multi_line_input()]
     print exit_inst2(inp)
 
 
