@@ -1,10 +1,5 @@
 from collections import Counter
-
-
-def get_input():
-    f = open('input')
-    return f.readline()
-
+from common import input_utils as iu
 
 def simplify(counter, list_dirs):
     assert len(list_dirs) == 2
@@ -61,7 +56,7 @@ def run_test():
 
 def main():
     run_test()
-    inp = get_input()
+    inp = iu.get_input('input')
     inst = inp.split(',')
     print process_simple(inst)
     print process_furthest(inst)
