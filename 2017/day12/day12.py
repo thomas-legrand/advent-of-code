@@ -1,14 +1,9 @@
 from collections import defaultdict
-from common import bfs
-
-
-def get_multi_line_input(f_name):
-    f = open(f_name)
-    return f.read().splitlines()
+from common import bfs, input_utils as iu
 
 
 def run_test():
-    test_inp = get_multi_line_input('test_input')
+    test_inp = iu.get_multi_line_input('test_input')
     g = create_graph(test_inp)
     assert len(bfs.perform_bfs(g, 0)) == 6
 
@@ -37,7 +32,7 @@ def find_groups(g):
 
 def main():
     run_test()
-    inp = get_multi_line_input('input')
+    inp = iu.get_multi_line_input('input')
     g = create_graph(inp)
     print len(bfs.perform_bfs(g, 0))
     print find_groups(g)
