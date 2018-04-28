@@ -1,6 +1,4 @@
-def get_input(f_name):
-    f = open(f_name)
-    return f.readline().split(',')
+from common import input_utils as iu
 
 
 def spin(s, n):
@@ -33,24 +31,57 @@ def parse(inst):
         return lambda s: partner(s, prog[0], prog[1])
 
 
+def whole_dance(instructions, programs):
+    N = 1000000000
+    cache = {}
+    n_cache_hits = 0
+    initial_positions = str(programs)
+    i = 0
+    while i < N:
+        if i > 0 and programs == initial_positions:
+            # we reached a loop in the dance, we compute the cycle length and fast-forward through the cycles
+            print 'reached loop at i = {}'.format(i)
+            cycle_length = int(i)
+            cycles = N // cycle_length
+            i = cycle_length * cycles
+            print 'advancing to i = {}'.format(i)
+        i += 1
+        if programs in cache:
+            programs = cache[programs]
+            n_cache_hits += 1
+            continue
+        old_positions = str(programs)
+        for inst in instructions:
+            programs = parse(inst)(programs)
+        cache[old_positions] = programs
+    return programs
+
+
 def run_test():
     assert spin('abcde', 3) == 'cdeab'
     assert exchange('eabcd', 3, 4) == 'eabdc'
     assert partner('eabdc', 'e', 'b') == 'baedc'
     programs = 'abcde'
-    instructions = get_input('test_input')
+    instructions = iu.get_comma_separated_single_line_input('test_input')
     for inst in instructions:
         programs = parse(inst)(programs)
     assert programs == 'baedc'
+    for inst in instructions:
+        programs = parse(inst)(programs)
+    assert programs == 'ceadb'
 
 
 def main():
     run_test()
+    print '#1 ----'
     programs = 'abcdefghijklmnop'
-    instructions = get_input('input')
+    instructions = iu.get_comma_separated_single_line_input('input')
     for inst in instructions:
         programs = parse(inst)(programs)
     print programs
+    print '#2 ----'
+    programs = 'abcdefghijklmnop'
+    print whole_dance(instructions, programs)
 
 
 if __name__ == '__main__':
