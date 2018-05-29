@@ -1,12 +1,11 @@
 from collections import Counter
 
+import sys
+sys.path.append("../..")
+from common import input_utils
+
 
 balancing_weight = None
-
-
-def get_multi_line_input(f_name):
-    f = open(f_name)
-    return f.read().splitlines()
 
 
 def bottom(inp):
@@ -73,7 +72,7 @@ def compute_total_weight(supported_nodes, initial_weights):
 
 
 def run_test():
-    inp_test = get_multi_line_input('input_test')
+    inp_test = input_utils.get_multi_line_input('input_test')
     assert bottom(inp_test) == 'tknk'
     supported_nodes, initial_weights = parse(inp_test)
     assert compute_total_weight(supported_nodes, initial_weights) == 60
@@ -81,7 +80,7 @@ def run_test():
 
 def main():
     run_test()
-    inp = get_multi_line_input('input')
+    inp = input_utils.get_multi_line_input('input')
     print bottom(inp)
     supported_nodes, initial_weights = parse(inp)
     print compute_total_weight(supported_nodes, initial_weights)

@@ -1,11 +1,11 @@
-def get_input():
+import sys
+sys.path.append("../..")
+from common import input_utils
+
+
+def get_custom_input():
     f = open('input')
     return [int(n) for n in f.readline().split(',')]
-
-
-def get_raw_input():
-    f = open('input')
-    return f.readline()
 
 
 def reverse(numbers, pos, length, skip):
@@ -73,9 +73,9 @@ def run_test():
 def main():
     run_test()
     numbers = [i for i in range(0, 256)]
-    inp = get_input()
+    inp = get_custom_input()
     print process(numbers, inp)
-    inp = get_raw_input()
+    inp = input_utils.get_input('input')
     print process2(256, inp)
 
 

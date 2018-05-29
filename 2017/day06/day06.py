@@ -1,6 +1,6 @@
-def get_input():
-    f = open('input')
-    return f.readline()
+import sys
+sys.path.append("../..")
+from common import input_utils
 
 
 def realloc(inp):
@@ -43,7 +43,7 @@ def run_test():
 
 def main():
     run_test()
-    inp = map(int, get_input().split())
+    inp = map(int, input_utils.get_input('input').split())
     print realloc(inp)
     print seen_again(inp)
 

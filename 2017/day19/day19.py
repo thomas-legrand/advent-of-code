@@ -1,9 +1,7 @@
 from string import ascii_uppercase
-
-
-def get_multi_line_input():
-    f = open('input')
-    return f.read().splitlines()
+import sys
+sys.path.append("../..")
+from common import input_utils
 
 
 def format_network(inp):
@@ -71,7 +69,7 @@ def follow(network):
 
 
 def main():
-    inp = get_multi_line_input()
+    inp = input_utils.get_multi_line_input('input')
     network = format_network(inp)
     print follow(network)
 

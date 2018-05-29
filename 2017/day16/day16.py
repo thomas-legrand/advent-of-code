@@ -1,4 +1,6 @@
-from common import input_utils as iu
+import sys
+sys.path.append("../..")
+from common import input_utils
 
 
 def spin(s, n):
@@ -62,7 +64,7 @@ def run_test():
     assert exchange('eabcd', 3, 4) == 'eabdc'
     assert partner('eabdc', 'e', 'b') == 'baedc'
     programs = 'abcde'
-    instructions = iu.get_comma_separated_single_line_input('test_input')
+    instructions = input_utils.get_comma_separated_single_line_input('test_input')
     for inst in instructions:
         programs = parse(inst)(programs)
     assert programs == 'baedc'
@@ -75,7 +77,7 @@ def main():
     run_test()
     print '#1 ----'
     programs = 'abcdefghijklmnop'
-    instructions = iu.get_comma_separated_single_line_input('input')
+    instructions = input_utils.get_comma_separated_single_line_input('input')
     for inst in instructions:
         programs = parse(inst)(programs)
     print programs

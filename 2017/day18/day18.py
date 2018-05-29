@@ -1,5 +1,3 @@
-import sys
-sys.path.append("../..")
 from common import input_utils as iu
 from collections import defaultdict
 

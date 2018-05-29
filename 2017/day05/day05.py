@@ -1,6 +1,6 @@
-def get_multi_line_input():
-    f = open('input')
-    return f.read().splitlines()
+import sys
+sys.path.append("../..")
+from common import input_utils
 
 
 def exit_inst(inst):
@@ -30,14 +30,14 @@ def exit_inst2(inst):
 
 
 def run_test():
-    inp_test = [int(n) for n in open('input_test').read().splitlines()]
+    inp_test = [int(n) for n in input_utils.get_multi_line_input('input_test')]
     assert exit_inst(inp_test) == 5
     assert exit_inst2(inp_test) == 10
 
 
 def main():
     run_test()
-    inp = [int(n) for n in get_multi_line_input()]
+    inp = [int(n) for n in input_utils.get_multi_line_input('input')]
     print exit_inst(inp)
     print exit_inst2(inp)
 

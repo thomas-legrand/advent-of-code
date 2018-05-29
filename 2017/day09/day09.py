@@ -1,7 +1,6 @@
-def get_input():
-    f = open('input')
-    return f.readline()
-
+import sys
+sys.path.append("../..")
+from common import input_utils
 
 PARENT_OPEN = '{'
 PARENT_CLOSE = '}'
@@ -45,7 +44,7 @@ def run_test():
 
 def main():
     run_test()
-    inp = get_input()
+    inp = input_utils.get_input('input')
     print score_string(inp)
 
 if __name__ == '__main__':

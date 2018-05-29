@@ -1,6 +1,6 @@
-def get_multi_line_input():
-    f = open('input')
-    return f.read().splitlines()
+import sys
+sys.path.append("../..")
+from common import input_utils
 
 
 def run_test():
@@ -29,7 +29,7 @@ def is_valid2(p):
 
 def main():
     run_test()
-    inp = get_multi_line_input()
+    inp = input_utils.get_multi_line_input('input')
     print sum(map(is_valid, inp))
     print sum(map(is_valid2, inp))
 

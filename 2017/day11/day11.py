@@ -1,5 +1,8 @@
+import sys
+sys.path.append("../..")
+from common import input_utils
 from collections import Counter
-from common import input_utils as iu
+
 
 def simplify(counter, list_dirs):
     assert len(list_dirs) == 2
@@ -56,7 +59,7 @@ def run_test():
 
 def main():
     run_test()
-    inp = iu.get_input('input')
+    inp = input_utils.get_input('input')
     inst = inp.split(',')
     print process_simple(inst)
     print process_furthest(inst)

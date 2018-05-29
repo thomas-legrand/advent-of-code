@@ -1,6 +1,6 @@
-def get_multi_line_input():
-    f = open('input')
-    return f.read().splitlines()
+import sys
+sys.path.append("../..")
+from common import input_utils
 
 
 def diff(s):
@@ -22,7 +22,7 @@ def run_test():
 
 def main():
     run_test()
-    inp = get_multi_line_input()
+    inp = input_utils.get_multi_line_input('input')
     print sum(map(diff, inp))
     print sum(map(check, inp))
 

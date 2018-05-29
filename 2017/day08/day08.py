@@ -1,7 +1,6 @@
-def get_multi_line_input(inp):
-    f = open(inp)
-    return f.read().splitlines()
-
+import sys
+sys.path.append("../..")
+from common import input_utils
 
 OP = {
     'inc': lambda x, y: x + y,
@@ -59,14 +58,14 @@ def run2(inp):
 
 def run_test():
     global r
-    inp_test = get_multi_line_input('input_test')
+    inp_test = input_utils.get_multi_line_input('input_test')
     assert run(inp_test) == 1
     assert run2(inp_test) == 10
 
 
 def main():
     run_test()
-    inp = get_multi_line_input('input')
+    inp = input_utils.get_multi_line_input('input')
     print run(inp)
     print run2(inp)
 

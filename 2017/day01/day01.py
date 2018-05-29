@@ -1,6 +1,6 @@
-def get_input():
-    f = open('input')
-    return f.readline()
+import sys
+sys.path.append("../..")
+from common import input_utils
 
 
 def sum_next(s):
@@ -36,7 +36,7 @@ def run_test():
 
 def main():
     run_test()
-    inp = get_input()
+    inp = input_utils.get_input('input')
     print sum_next(inp)
     print sum_next2(inp)
 

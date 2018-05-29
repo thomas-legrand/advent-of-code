@@ -1,10 +1,8 @@
 import re
 from collections import Counter
-
-
-def get_multi_line_input(f_name):
-    f = open(f_name)
-    return f.read().splitlines()
+import sys
+sys.path.append("../..")
+from common import input_utils
 
 
 class Particle(object):
@@ -43,15 +41,15 @@ def resolve_collisions(inp, final_t):
 
 
 def run_test():
-    inp = get_multi_line_input('test_input')
+    inp = input_utils.get_multi_line_input('test_input')
     assert find_closest(inp, 100) == 0
-    inp = get_multi_line_input('test_input_2')
+    inp = input_utils.get_multi_line_input('test_input_2')
     assert resolve_collisions(inp, 100) == 1
 
 
 def main():
     run_test()
-    inp = get_multi_line_input('input')
+    inp = input_utils.get_multi_line_input('input')
     print find_closest(inp, 1000)
     print resolve_collisions(inp, 1000)
 
